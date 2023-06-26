@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <title>Triples</title>
+</head>
+<body>
+    <form>
+        <label for="tamaño">Cantidad de dígitos: </label>
+        <input id="tamaño" name="tamaño" type="number" min="3" max="10" value="3">
+        <button type="button" onclick="elegir();">Asignar</button><br><br>
+        <div id="primero">
+            <label for="numeros">Dígitos: </label>
+            <input type="text" name="numeros" id="numeros" onkeyup="revisar();" disabled>
+            <button id="mostrar" type="button" onclick="mostrar();" disabled>Mostrar</button>
+        </div>
+    </form>
+    <p id="combinaciones"></p>
+</body>
+</html>
