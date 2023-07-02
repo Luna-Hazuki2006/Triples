@@ -23,10 +23,12 @@ function mostrar() {
 }
 
 function revisar() {
+    let todos = []
     let valor = String(inumeros.value)
+    console.log(valor.split(""));
     for (let i = 0; i < valor.length; i++) {
         let dato = valor.charAt(i)
-        if (isNaN(dato)) {
+        if (!isNaN(dato)) {
             
         }
     }
