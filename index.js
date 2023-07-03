@@ -3,6 +3,7 @@ const itamaño = document.getElementById("tamaño")
 const inumeros = document.getElementById("numeros")
 const bmostrar = document.getElementById("mostrar")
 let digitos = new Array()
+let permutacion = new Array()
 
 function elegir() {
     let numero = itamaño.value
@@ -14,18 +15,48 @@ function elegir() {
     inumeros.setAttribute("maxlength", "" + cantidad)
 }
 
+function permutar() {
+    var resultados = [];
+    function permute(lista, prueba) {
+        var dato, prueba = prueba || [];
+
+        for (var i = 0; i < lista.length; i++) {
+        dato = lista.splice(i, 1);
+        if (lista.length === 0) {
+            resultados.push(prueba.concat(dato));
+        }
+        permute(lista.slice(), prueba.concat(dato));
+        lista.splice(i, 0, dato[0]);
+        }
+
+        return resultados;
+    }
+    resultados = permute(digitos)
+    console.log(resultados);
+    // resultados.forEach(x => {
+    //     dato = ""
+    //     x.forEach(i => dato += i)
+    //     x = dato
+    // })
+    console.log(resultados);
+    permutacion = resultados
+}
+
 function factorial() {
+    console.log(itamaño.value);
     let original = itamaño.value
-    let factorial = 0
-    for (let i = 0; i <= original; i++) {
+    let factorial = original
+    for (let i = 1; i < original; i++) {
         factorial *= i
     }
     console.log("factorial de: " + original);
     console.log(factorial);
+    permutar()
 }
 
 function mostrar() {
     factorial()
+
 }
 
 function revisar() {
