@@ -15,15 +15,21 @@ function elegir() {
 }
 
 function factorial() {
-    
+    let original = itamaño.value
+    let factorial = 0
+    for (let i = 0; i <= original; i++) {
+        factorial *= i
+    }
+    console.log("factorial de: " + original);
+    console.log(factorial);
 }
 
 function mostrar() {
-    
+    factorial()
 }
 
 function revisar() {
-    bmostrar.removeAttribute("onclick")
+    // bmostrar.removeAttribute("onclick")
     let todos = ""
     let final = ""
     let valor = String(inumeros.value)
@@ -40,5 +46,5 @@ function revisar() {
     digitos = Array.from(todos)
     console.log("Los digitos son: ");
     console.log(digitos);
-    bmostrar.setAttribute("onclick", "mostrar();")
+    // bmostrar.setAttribute("onclick", "mostrar();")
 }

@@ -12,11 +12,9 @@
         <label for="tamaño">Cantidad de dígitos: </label>
         <input id="tamaño" name="tamaño" type="number" min="3" max="10" value="3">
         <button type="button" onclick="elegir();">Asignar</button><br><br>
-        <div id="primero">
-            <label for="numeros">Dígitos: </label>
-            <input type="text" name="numeros" id="numeros" onkeyup="revisar();" disabled>
-            <button id="mostrar" type="button" onclick="mostrar();" disabled>Mostrar</button>
-        </div>
+        <label for="numeros">Dígitos: </label>
+        <input type="text" name="numeros" id="numeros" onkeyup="revisar();" disabled>
+        <button id="mostrar" type="button" onclick="mostrar();" disabled>Mostrar</button>
     </form>
     <p id="combinaciones"></p>
 </body>
