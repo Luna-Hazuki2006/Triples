@@ -14,7 +14,7 @@ function elegir() {
     inumeros.setAttribute("maxlength", "" + cantidad)
 }
 
-function factorial(params) {
+function factorial() {
     
 }
 
@@ -23,13 +23,22 @@ function mostrar() {
 }
 
 function revisar() {
-    let todos = []
+    bmostrar.removeAttribute("onclick")
+    let todos = ""
+    let final = ""
     let valor = String(inumeros.value)
     console.log(valor.split(""));
-    for (let i = 0; i < valor.length; i++) {
-        let dato = valor.charAt(i)
-        if (!isNaN(dato)) {
-            
-        }
-    }
+    valor.split("").forEach(x => todos += (!isNaN(x)) ? x : '')
+    console.log("sin letras es: " + todos);
+    todos = [...new Set(todos.split(""))]
+    todos.forEach(x => final += x)
+    console.log("sin repetidos es: " + todos);
+    console.log(todos);
+    console.log("Al final sería: " + final);
+    console.log(final);
+    inumeros.value = final
+    digitos = Array.from(todos)
+    console.log("Los digitos son: ");
+    console.log(digitos);
+    bmostrar.setAttribute("onclick", "mostrar();")
 }
