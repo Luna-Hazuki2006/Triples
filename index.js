@@ -33,12 +33,6 @@ function permutar() {
     }
     resultados = permute(digitos)
     console.log(resultados);
-    // resultados.forEach(x => {
-    //     dato = ""
-    //     x.forEach(i => dato += i)
-    //     x = dato
-    // })
-    console.log(resultados);
     permutacion = resultados
 }
 
