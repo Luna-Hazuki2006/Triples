@@ -76,3 +76,16 @@ function allCombinations (items) {
 var fruits = ["Apple", "Banana", "Coconut", "Pear"];
 var combo = allCombinations(fruits);
 console.table(combo);
+
+function getCombination(array, length) {
+    function iter(index, right) {
+        if (right.length === length) return result.push(right);
+        if (index === array.length) return;
+        for (let i = index, l = array.length - length + right.length + 1; i < l; i++) {
+            iter(i + 1, [...right, array[i]]);
+        }
+    }
+    var result = [];
+    iter(0, []);
+    return result;
+}
