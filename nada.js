@@ -33,3 +33,46 @@ else {
     console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 }
 // ]]>
+
+function allPermutations (items) {
+    // allPermutations () : return a list of all possible permutations
+    // credits: https://stackoverflow.com/questions/9960908/permutations-in-javascript
+     
+    let results = [];
+    function permute (arr, memo) {
+        var cur, memo = memo || [];
+        for (let i = 0; i < arr.length; i++) {
+            cur = arr.splice(i, 1);
+            if (arr.length === 0) {
+                results.push(memo.concat(cur));
+            }
+            permute(arr.slice(), memo.concat(cur));
+            arr.splice(i, 0, cur[0]);
+        }
+        return results;
+    }
+    permute(items);
+    return results;
+}     
+var fruits = ["Apple", "Banana", "Coconut"];
+var permutated = allPermutations(fruits);
+console.table(permutated);
+
+function allCombinations (items) {
+    // allcombinations () : return a list of all possible combinations
+     
+    let results = [];
+    for (let slots = items.length; slots > 0; slots--) {
+        for (let loop = 0; loop < items.length - slots + 1; loop++) {
+            let key = results.length;
+            results[key] = [];
+            for (let i = loop; i < loop + slots; i++) {
+                results[key].push(items[i]);
+            }
+        }
+    }
+    return results;
+}    
+var fruits = ["Apple", "Banana", "Coconut", "Pear"];
+var combo = allCombinations(fruits);
+console.table(combo);

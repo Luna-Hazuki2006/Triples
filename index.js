@@ -4,6 +4,7 @@ const inumeros = document.getElementById("numeros")
 const bmostrar = document.getElementById("mostrar")
 let digitos = new Array()
 let permutacion = new Array()
+let combinacion = new Array()
 
 function elegir() {
     let numero = itamaño.value
@@ -36,6 +37,24 @@ function permutar() {
     permutacion = resultados
 }
 
+function combinar() {
+    let resultados = []
+    let triple = 3
+    function combinado(lista) {
+        for (let i = 0; i < lista.length - triple + 1; i++) {
+            let dato = resultados.length
+            resultados[dato] = []
+            for (let j = i; j < i + triple; j++) {
+                resultados[dato].push(lista[j])
+            }
+        }
+        return resultados
+    }
+    resultados = combinado(digitos)
+    console.log(resultados);
+    combinacion = resultados
+}
+
 function factorial() {
     console.log(itamaño.value);
     let original = itamaño.value
@@ -46,11 +65,7 @@ function factorial() {
     console.log("factorial de: " + original);
     console.log(factorial);
     permutar()
-}
-
-function mostrar() {
-    factorial()
-
+    combinar()
 }
 
 function revisar() {
