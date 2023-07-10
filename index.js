@@ -106,8 +106,10 @@ function revisar() {
     let validado = inumeros.value.length
     if (validado != cantidad) {
         bmostrar.setAttribute("onclick", "alert('El valor tiene que ser igual a su tamaño');")
-    } else if (validado == cantidad) {
+    } else if (validado == cantidad && cantidad >= 3 && cantidad <= 10) {
         bmostrar.setAttribute("onclick", "proceso();")
+    } else {
+        
     }
 }
 
