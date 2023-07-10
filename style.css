@@ -24,3 +24,7 @@ td {
 td:hover {
     background-color: lightcoral;
 }
+
+.invisible {
+    visibility: hidden;
+}

@@ -123,4 +123,5 @@ function mostrar() {
         texto += "</tr>"
     })
     tvista.innerHTML = texto
+    tvista.classList.remove("invisible")
 }
