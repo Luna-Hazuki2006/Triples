@@ -8,6 +8,7 @@
     <title>Triples</title>
 </head>
 <body>
+    <p id="constante">Dígitos actuales: 3</p>
     <form>
         <label for="tamaño">Cantidad de dígitos: </label>
         <input id="tamaño" name="tamaño" type="number" min="3" max="10" value="3">
@@ -16,6 +17,7 @@
         <input type="text" name="numeros" id="numeros" onkeyup="revisar();" disabled>
         <button id="mostrar" type="button" onclick="proceso();" disabled>Demostrar</button>
     </form>
-    <p id="combinaciones"></p>
+    <table id="combinaciones">
+    </table>
 </body>
 </html>

@@ -1,3 +1,25 @@
+body {
+    background-color: lavenderblush;
+}
+
 form, p {
     text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+table, td {
+    border: 1px solid black;
+}
+
+td {
+    font-size: large;
+}
+
+td:hover {
+    background-color: lightcoral;
 }

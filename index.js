@@ -2,6 +2,8 @@ let cantidad = 0
 const itamaño = document.getElementById("tamaño")
 const inumeros = document.getElementById("numeros")
 const bmostrar = document.getElementById("mostrar")
+const tvista = document.getElementById("combinaciones")
+const pconstante = document.getElementById("constante")
 let digitos = new Array()
 let permutacion = new Array()
 let combinacion = new Array()
@@ -14,6 +16,7 @@ function elegir() {
     bmostrar.removeAttribute("disabled")
     inumeros.setAttribute("minlength", "3")
     inumeros.setAttribute("maxlength", "" + cantidad)
+    pconstante.innerText = "Dígitos actuales: " + cantidad
 }
 
 function permutar(arreglo) {
@@ -64,10 +67,10 @@ function factorial(dato) {
 
 function proceso() {
     console.log("Ha empezado");
-    let todo = itamaño.value
+    let todo = cantidad
     let final = 0
     if (todo != 3) {
-        final = factorial(todo) / (factorial(3) * factorial(itamaño.value - 3))
+        final = factorial(todo) / (factorial(3) * factorial(cantidad - 3))
         final *= factorial(3)
         console.log("el valor de combinaciones es: " + final);
     } else {
@@ -80,7 +83,7 @@ function proceso() {
         combinacion[i] = permutar(dato)
     }
     console.log(combinacion);
-    console.table(combinacion);
+    mostrar()
 }
 
 function revisar() {
@@ -101,9 +104,23 @@ function revisar() {
     console.log("Los digitos son: ");
     console.log(digitos);
     let validado = inumeros.value.length
-    if (validado != itamaño.value) {
+    if (validado != cantidad) {
         bmostrar.setAttribute("onclick", "alert('El valor tiene que ser igual a su tamaño');")
-    } else if (validado == itamaño.value) {
+    } else if (validado == cantidad) {
         bmostrar.setAttribute("onclick", "proceso();")
     }
+}
+
+function mostrar() {
+    let texto = ""
+    combinacion.forEach((lista) => {
+        texto += "<tr>"
+        lista.forEach((dato) => {
+            let digito = ""
+            dato.forEach((i) => digito += i)
+            texto += `<td>${digito}</td>`
+        })
+        texto += "</tr>"
+    })
+    tvista.innerHTML = texto
 }
