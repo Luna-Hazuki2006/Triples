@@ -89,3 +89,16 @@ function getCombination(array, length) {
     iter(0, []);
     return result;
 }
+
+function combinar(lista) {
+    let resultados = []
+    let triple = 3
+    for (let i = 0; i < lista.length - triple + 1; i++) {
+            let dato = resultados.length
+            resultados[dato] = []
+            for (let j = i; j < i + triple; j++) {
+                resultados[dato].push(lista[j])
+            }
+        }
+    return resultados
+}

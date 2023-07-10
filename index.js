@@ -37,29 +37,17 @@ function permutar(arreglo) {
 }
 
 function combinar(lista) {
-    let resultados = []
-    let triple = 3
-    for (let i = 0; i < lista.length - triple + 1; i++) {
-            let dato = resultados.length
-            resultados[dato] = []
-            for (let j = i; j < i + triple; j++) {
-                resultados[dato].push(lista[j])
-            }
-        }
-    return resultados
-}
-
-function getCombination(array, length) {
-    function iter(index, right) {
-        if (right.length === length) return result.push(right);
-        if (index === array.length) return;
-        for (let i = index, l = array.length - length + right.length + 1; i < l; i++) {
-            iter(i + 1, [...right, array[i]]);
+    const triple = 3
+    let resultado = []
+    function iterar(indice, dato) {
+        if (dato.length === triple) return resultado.push(dato)
+        if (indice === lista.length) return
+        for (let i = indice; i < lista.length - triple + dato.length + 1; i++) {
+            iterar(i + 1, [...dato, lista[i]])
         }
     }
-    var result = [];
-    iter(0, []);
-    return result;
+    iterar(0, [])
+    return resultado
 }
 
 function factorial(dato) {
@@ -80,20 +68,19 @@ function proceso() {
     let final = 0
     if (todo != 3) {
         final = factorial(todo) / (factorial(3) * factorial(itamaño.value - 3))
+        final *= factorial(3)
         console.log("el valor de combinaciones es: " + final);
-        combinacion = combinar(digitos)
     } else {
         final = factorial(todo)
         console.log("el valor de permutaciones es: " + final);
-        combinacion = combinar(digitos)
     }
+    combinacion = combinar(digitos)
     for (let i = 0; i < combinacion.length; i++) {
         let dato = combinacion[i]
         combinacion[i] = permutar(dato)
     }
     console.log(combinacion);
-    console.log("prueba");
-    console.log(getCombination(digitos, 3));
+    console.table(combinacion);
 }
 
 function revisar() {
