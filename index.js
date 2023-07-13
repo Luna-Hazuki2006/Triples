@@ -10,13 +10,19 @@ let combinacion = new Array()
 
 function elegir() {
     let numero = itamaño.value
-    cantidad = numero
-    console.log(cantidad);
-    inumeros.removeAttribute("disabled")
-    bmostrar.removeAttribute("disabled")
-    inumeros.setAttribute("minlength", "3")
-    inumeros.setAttribute("maxlength", "" + cantidad)
-    pconstante.innerText = "Dígitos actuales: " + cantidad
+    
+    if (numero >= 3 && numero <= 10) {
+        cantidad = numero
+        console.log(cantidad);
+        inumeros.removeAttribute("disabled")
+        bmostrar.removeAttribute("disabled")
+        inumeros.setAttribute("minlength", "3")
+        inumeros.setAttribute("maxlength", "" + cantidad)
+        pconstante.innerText = "Dígitos actuales: " + cantidad
+    } else {
+        alert("El valor tiene que ser un número entre 3 o 10")
+    }
+    
 }
 
 function permutar(arreglo) {
